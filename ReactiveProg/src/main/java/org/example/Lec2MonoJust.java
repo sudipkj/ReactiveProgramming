@@ -1,7 +1,6 @@
 package org.example;
 
 import reactor.core.publisher.Mono;
-import reactor.core.publisher.SynchronousSink;
 
 public class Lec2MonoJust {
 
@@ -14,10 +13,6 @@ public class Lec2MonoJust {
 
         //In reactive programming nothing happens if we do not subscribe
 
-        mono.subscribe( i -> {
-            System.out.println(i);
-        });
-
-
+        mono.subscribe(System.out::println);
     }
 }
