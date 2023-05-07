@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.utils.Util;
 import reactor.core.publisher.Mono;
 
 public class Lec03MonoSubscribe {
@@ -19,9 +20,9 @@ public class Lec03MonoSubscribe {
                 .map(e -> e * 2)
                 .map(e -> e / 0);
 
-        mono1.subscribe(item -> System.out.println(item),
-                err -> System.out.println(err.getMessage()),
-                () -> System.out.println("OnComplete message")
+        mono1.subscribe(Util.onNext(),
+                Util.onError(),
+                Util.onComplete()
         );
     }
 }
