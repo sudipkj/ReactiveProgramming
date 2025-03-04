@@ -11,9 +11,18 @@ import java.util.stream.Collectors;
 public class EmployeeDao {
 
     public Flux<Employee> getAllEmployee(){
-        return Flux.range(0, 10)
+        return Flux.range(1, 10)
+                .doOnNext(EmployeeDao :: sleepThread)
                 .doOnNext(i -> System.out.println("Processing i = " + i + " object "))
-                .map(integer -> new Employee(integer, ""));
+                .map(integer -> new Employee(integer, "Name" + integer));
+    }
+
+    private static void sleepThread(int i){
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
 }

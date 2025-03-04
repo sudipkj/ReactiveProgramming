@@ -9,6 +9,4 @@ public class Employee {
     Integer empId;
     String name;
 
-    public Employee(Integer i, String empName) {
-    }
 }
